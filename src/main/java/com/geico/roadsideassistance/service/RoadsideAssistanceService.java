@@ -6,7 +6,6 @@ import com.geico.roadsideassistance.business.objects.Customer;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.SortedSet;
 
 public interface RoadsideAssistanceService {
     /**

@@ -5,6 +5,12 @@ import com.geico.collections.Geolocation;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The `QuadTree` class is a spatial data structure used to partition space into a hierarchy of nested rectangles.
+ * It is used for efficient spatial indexing of elements based on their geographic coordinates (geolocations).
+ *
+ * @param <T> The type of elements stored in the quadtree.
+ */
 public class QuadTree<T> {
     private static final int CAPACITY = 4;
 
@@ -12,17 +18,21 @@ public class QuadTree<T> {
     private final List<Element> elements;
     private final QuadTree<T>[] children;
 
+    /**
+     * Constructs a `QuadTree` with the given boundary.
+     *
+     * @param boundary The boundary that defines the initial extent of the quadtree.
+     */
     public QuadTree(Boundary boundary) {
         this.boundary = boundary;
         this.elements = new ArrayList<>();
         this.children = new QuadTree[4];
     }
 
-
     private class Element<T> {
-
         Geolocation geolocation;
         T element;
+
         Element(T element, Geolocation geolocation) {
             this.element = element;
             this.geolocation = geolocation;
@@ -33,6 +43,13 @@ public class QuadTree<T> {
         return insert(element.geolocation, element.element);
     }
 
+    /**
+     * Inserts an element into the quadtree at a specific geolocation point.
+     *
+     * @param point   The geolocation of the point to insert.
+     * @param element The element to insert at the specified geolocation.
+     * @return `true` if the insertion was successful, `false` otherwise.
+     */
     public boolean insert(Geolocation point, T element) {
         if (!boundary.contains(point)) {
             return false;
@@ -55,6 +72,12 @@ public class QuadTree<T> {
         return false;
     }
 
+    /**
+     * Retrieves a list of elements within a specified boundary range.
+     *
+     * @param range The boundary range for querying elements.
+     * @return A list of elements within the specified range.
+     */
     public List<T> queryRange(Boundary range) {
         List<T> pointsInRange = new ArrayList<>();
 

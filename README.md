@@ -1,9 +1,21 @@
-This README file that provides instructions on building and executing tests for `RoadsideAssistanceService` implementation
+
 ---
 
-# Roadside Assistance Service - Test Instructions
+# Roadside Assistance Service - Developer Instructions
 
 This README provides instructions on how to build and execute tests for the Roadside Assistance Service implementation. The service is responsible for connecting customers with nearby service providers using a REST API.
+
+## Assumptions and Considerations:
+
+* The RoadsideAssistanceService implementation assumes that an in-memory storage for spatial and reservation data is suitable for the current
+assignment. However, it is explicitly noted that the system will eventually require integration with a
+persistence storage solution that supports geo-spatial data for efficient assistant location mapping.
+* Efficient retrieval of geospatial data for finding nearby assistants will be critical in a production system,
+and the class should eventually utilize spatial indexing and geospatial database solutions.
+* The `AssistantManager` and `ReservationManager` are used to manage assistant locations and reservations.
+* The `Synchronized` annotation is used for methods that may be accessed concurrently to ensure thread safety in
+a single-server environment. However, in a multi-server environment, additional database-level handling is
+required to guarantee thread safety and data consistency.
 
 ## Prerequisites
 

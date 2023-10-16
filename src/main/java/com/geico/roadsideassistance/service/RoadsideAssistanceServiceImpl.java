@@ -13,10 +13,19 @@ import lombok.Synchronized;
 
 import java.util.*;
 
+
+/**
+ * This class implements the RoadsideAssistanceService interface and provides
+ * the functionality to connect customers with nearby service providers.
+ */
 public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService {
-    final private AssistantManager assistantManager;  // Instance of AssistantManager
+    final private AssistantManager assistantManager;
     final private ReservationManager reservationManager;
 
+    /**
+     * Constructor for RoadsideAssistanceServiceImpl.
+     * It initializes the AssistantManager and ReservationManager with default parameters.
+     */
     public RoadsideAssistanceServiceImpl() {
         Boundary serviceBoundary = new Boundary(-180, -90, 360, 180);
         Distance maxDistanceOfService = new Distance(100, DistanceUnit.MILES);
@@ -24,6 +33,13 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
         reservationManager = new ReservationManager();
     }
 
+    /**
+     * Constructor for RoadsideAssistanceServiceImpl.
+     * It allows custom initialization of the AssistantManager and ReservationManager.
+     *
+     * @param assistantManager   The AssistantManager to be used.
+     * @param reservationManager The ReservationManager to be used.
+     */
     public RoadsideAssistanceServiceImpl(AssistantManager assistantManager,
                                          ReservationManager reservationManager) {
         this.assistantManager = assistantManager;

@@ -1,19 +1,9 @@
 package com.geico.collections;
 
+/**
+ * The `DistanceUnit` enum represents units of distance measurement, such as kilometers and miles.
+ */
 public enum DistanceUnit {
-    KILOMETERS,
-    MILES;
-
-    @Override
-    public String toString() {
-        // Customize the display of the enum values if needed
-        switch (this) {
-            case KILOMETERS:
-                return "km";
-            case MILES:
-                return "miles";
-            default:
-                return "unknown";
-        }
-    }
+    KILOMETERS, // Represents kilometers as a unit of distance.
+    MILES;      // Represents miles as a unit of distance.
 }
